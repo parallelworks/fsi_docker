@@ -1,0 +1,17 @@
+Length;geometry;0.01
+Width;geometry;0.0125
+Height;geometry;0.003
+Thickness;geometry;0.00025
+InletLength;geometry;0.001
+InletHeight;geometry;0.5
+InletOffset;geometry;-0.5
+OutletLength;geometry;0.001
+OutletHeight;geometry;1
+OutletOffset;geometry;0.5
+endTime;runtime;50
+writeInterval;runtime;4
+deltaT;runtime;1
+meshRes;mesh;0.0004
+blockMeshRes;mesh;50
+inletVelocity;fluid;2.5
+inletTemp;fluid;400

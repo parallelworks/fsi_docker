@@ -1,0 +1,672 @@
+// CACHE ID 03153d0c-11a0-45f9-8495-1d1a00295d88-no-provenance
+import(sys)
+import(scheduler)
+import(swift)
+importStdlib(1)
+
+types(
+	xs:schema(
+    			xs:simpleType("file", xs:restriction("string"))
+    )
+)
+swift.field.swift.mapper.17062.string := swift:field("swift.mapper.17062", "string")
+swift.field.calo.file := swift:field("calo", "file")
+swift.field.swift.mapper.17064.string := swift:field("swift.mapper.17064", "string")
+swift.field.casedir.string := swift:field("casedir", "string")
+swift.field.swift.mapper.17060.string := swift:field("swift.mapper.17060", "string")
+swift.field.const.string := swift:field("const", "string")
+swift.field.const.boolean := swift:field("const", "boolean")
+swift.field.swift.mapper.17027.string := swift:field("swift.mapper.17027", "string")
+swift.field.bodyFiles.file := swift:field("bodyFiles", "file")
+swift.field.swift.mapper.17021.string := swift:field("swift.mapper.17021", "string")
+swift.field.metricFile.file := swift:field("metricFile", "file")
+swift.field.swift.mapper.17022.string := swift:field("swift.mapper.17022", "string")
+swift.field.cale.file := swift:field("cale", "file")
+swift.field.metricImagesLocation.string := swift:field("metricImagesLocation", "string")
+swift.field.swift.mapper.17024.string := swift:field("swift.mapper.17024", "string")
+swift.field.CCXmetricImagesLocation.string := swift:field("CCXmetricImagesLocation", "string")
+swift.field.mesh.file.array.int := swift:field("mesh", "file[int]")
+swift.field.calculix.file.array.int := swift:field("calculix", "file[int]")
+swift.field.swift.mapper.17050.string := swift:field("swift.mapper.17050", "string")
+swift.field.swift.mapper.17052.string := swift:field("swift.mapper.17052", "string")
+swift.field.me.file := swift:field("me", "file")
+swift.field.cases.string.array.int := swift:field("cases", "string[int]")
+swift.field.swift.mapper.17058.string := swift:field("swift.mapper.17058", "string")
+swift.field.swift.mapper.17015.string := swift:field("swift.mapper.17015", "string")
+swift.field.swift.mapper.17016.string := swift:field("swift.mapper.17016", "string")
+swift.field.swift.mapper.17010.string := swift:field("swift.mapper.17010", "string")
+swift.field.swift.mapper.17054.string := swift:field("swift.mapper.17054", "string")
+swift.field.swift.mapper.17012.string := swift:field("swift.mapper.17012", "string")
+swift.field.mo.file := swift:field("mo", "file")
+swift.field.swift.mapper.17056.string := swift:field("swift.mapper.17056", "string")
+swift.field.swift.mapper.17013.string := swift:field("swift.mapper.17013", "string")
+swift.field.swift.mapper.17018.string := swift:field("swift.mapper.17018", "string")
+swift.field.outcsv.file := swift:field("outcsv", "file")
+swift.field.swift.mapper.17019.string := swift:field("swift.mapper.17019", "string")
+swift.field.metrics.file.array.int := swift:field("metrics", "file[int]")
+swift.field.mapper.file.array.int := swift:field("mapper", "file[int]")
+swift.field.caseIndex.int := swift:field("caseIndex", "int")
+swift.field.path.string := swift:field("path", "string")
+swift.field.swift.mapper.17041.string := swift:field("swift.mapper.17041", "string")
+swift.field.const.float := swift:field("const", "float")
+swift.field.swift.mapper.17048.string := swift:field("swift.mapper.17048", "string")
+swift.field.caselist.file := swift:field("caselist", "file")
+swift.field.outhtml.file := swift:field("outhtml", "file")
+swift.field.swift.mapper.17043.string := swift:field("swift.mapper.17043", "string")
+swift.field.swift.mapper.17046.string := swift:field("swift.mapper.17046", "string")
+swift.field.swift.mapper.17008.string := swift:field("swift.mapper.17008", "string")
+swift.field.params.file := swift:field("params", "file")
+swift.field.swift.mapper.17030.string := swift:field("swift.mapper.17030", "string")
+swift.field.oe.file := swift:field("oe", "file")
+swift.field.metricImages.file.array.int := swift:field("metricImages", "file[int]")
+swift.field.mape.file := swift:field("mape", "file")
+swift.field.CCXmetricFile.file := swift:field("CCXmetricFile", "file")
+swift.field.swift.mapper.17032.string := swift:field("swift.mapper.17032", "string")
+swift.field.oo.file := swift:field("oo", "file")
+swift.field.openfoam.file.array.int := swift:field("openfoam", "file[int]")
+swift.field.mapo.file := swift:field("mapo", "file")
+swift.field.mexdex.file.array.int := swift:field("mexdex", "file[int]")
+swift.field.temp.int := swift:field("temp", "int")
+swift.field.outdir.string := swift:field("outdir", "string")
+swift.field.const.int := swift:field("const", "int")
+swift.field.meshLocation.string := swift:field("meshLocation", "string")
+swift.field.mapResults.file := swift:field("mapResults", "file")
+swift.field.meshOut.file.array.int := swift:field("meshOut", "file[int]")
+swift.field.CCXmetricImages.file.array.int := swift:field("CCXmetricImages", "file[int]")
+swift.string.17004 := swift:new(swift.field.const.string, value="models/mexdex/postprocess.sh")
+swift.string.17042 := swift:new(swift.field.const.string, value="/mesh.err")
+swift.string.17011 := swift:new(swift.field.const.string, value="models/mesh")
+swift.string.17009 := swift:new(swift.field.const.string, value="utils/mapper.sh")
+swift.string.17057 := swift:new(swift.field.const.string, value="/mapper.err")
+swift.string.17033 := swift:new(swift.field.const.string, value="results/")
+swift.string.17063 := swift:new(swift.field.const.string, value="/calculix.err")
+swift.string.17035 := swift:new(swift.field.const.string, value="java.lang.System")
+swift.string.17028 := swift:new(swift.field.const.string, value="csv")
+swift.string.17051 := swift:new(swift.field.const.string, value="/openfoam.err")
+swift.string.17059 := swift:new(swift.field.const.string, value="/calculix/metrics.csv")
+swift.string.17017 := swift:new(swift.field.const.string, value="models/calculix")
+swift.string.17026 := swift:new(swift.field.const.string, value="results/output.html")
+swift.string.17038 := swift:new(swift.field.const.string, value="\n%i Cases in Simulation\n\n")
+swift.string.17039 := swift:new(swift.field.const.string, value="results/logs/case_")
+swift.string.17023 := swift:new(swift.field.const.string, value="models/mexdex")
+swift.string.17045 := swift:new(swift.field.const.string, value="/openfoam/results.tgz")
+swift.string.17047 := swift:new(swift.field.const.string, value="/openfoam/metrics.csv")
+swift.string.17065 := swift:new(swift.field.const.string, value="/mesh")
+swift.string.17029 := swift:new(swift.field.const.string, value="results/output.csv")
+swift.string.17006 := swift:new(swift.field.const.string, value="paramFile")
+swift.string.17067 := swift:new(swift.field.const.string, value="/mesh.exo")
+swift.string.17001 := swift:new(swift.field.const.string, value="models/openfoam/runOF.sh")
+swift.string.17025 := swift:new(swift.field.const.string, value="html")
+swift.string.17003 := swift:new(swift.field.const.string, value="models/calculix/runCCX.sh")
+swift.string.17014 := swift:new(swift.field.const.string, value="models/openfoam")
+swift.string.17007 := swift:new(swift.field.const.string, value="params.run")
+swift.string.17034 := swift:new(swift.field.const.string, value="case")
+swift.string.17031 := swift:new(swift.field.const.string, value="cases.list")
+swift.string.17068 := swift:new(swift.field.const.string, value="/calculix/png")
+swift.string.17049 := swift:new(swift.field.const.string, value="/openfoam.out")
+swift.string.17036 := swift:new(swift.field.const.string, value="getProperty")
+swift.string.17066 := swift:new(swift.field.const.string, value="/openfoam/png")
+swift.string.17037 := swift:new(swift.field.const.string, value="user.dir")
+swift.string.17005 := swift:new(swift.field.const.string, value="models/mapper/map.sh")
+swift.string.17002 := swift:new(swift.field.const.string, value="models/mexdex/prepinputs.py")
+swift.string.17061 := swift:new(swift.field.const.string, value="/calculix.out")
+swift.string.17040 := swift:new(swift.field.const.string, value="/mesh.out")
+swift.string.17053 := swift:new(swift.field.const.string, value="/mapper/results.tgz")
+swift.string.17020 := swift:new(swift.field.const.string, value="models/mapper")
+swift.string.17000 := swift:new(swift.field.const.string, value="models/mesh/genMesh.sh")
+swift.string.17044 := swift:new(swift.field.const.string, value="results/case_")
+swift.string.17055 := swift:new(swift.field.const.string, value="/mapper.out")
+swift.mapper.17008 := 
+			swift:new(swift.field.swift.mapper.17008.string)
+params := 
+		swift:new(swift.field.params.file, readCount=1, _defline=10, input=true
+			swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17008))
+		)
+outdir := 
+			swift:new(swift.field.outdir.string, readCount=3, _defline=13)
+casedir := 
+			swift:new(swift.field.casedir.string, _defline=14)
+swift.mapper.17010 := 
+			swift:new(swift.field.swift.mapper.17010.string)
+swift.mapper.17012 := 
+			swift:new(swift.field.swift.mapper.17012.string)
+mesh := 
+		swift:new(swift.field.mesh.file.array.int, readCount=1, _defline=17, input=true
+			swift:mapping("Ext", swift:parameter("exec", swift.mapper.17010)
+			swift:parameter("root", swift.mapper.17012))
+		)
+swift.mapper.17013 := 
+			swift:new(swift.field.swift.mapper.17013.string)
+swift.mapper.17015 := 
+			swift:new(swift.field.swift.mapper.17015.string)
+openfoam := 
+		swift:new(swift.field.openfoam.file.array.int, readCount=1, _defline=18, input=true
+			swift:mapping("Ext", swift:parameter("exec", swift.mapper.17013)
+			swift:parameter("root", swift.mapper.17015))
+		)
+swift.mapper.17016 := 
+			swift:new(swift.field.swift.mapper.17016.string)
+swift.mapper.17018 := 
+			swift:new(swift.field.swift.mapper.17018.string)
+calculix := 
+		swift:new(swift.field.calculix.file.array.int, readCount=1, _defline=19, input=true
+			swift:mapping("Ext", swift:parameter("exec", swift.mapper.17016)
+			swift:parameter("root", swift.mapper.17018))
+		)
+swift.mapper.17019 := 
+			swift:new(swift.field.swift.mapper.17019.string)
+swift.mapper.17021 := 
+			swift:new(swift.field.swift.mapper.17021.string)
+mapper := 
+		swift:new(swift.field.mapper.file.array.int, readCount=1, _defline=20, input=true
+			swift:mapping("Ext", swift:parameter("exec", swift.mapper.17019)
+			swift:parameter("root", swift.mapper.17021))
+		)
+swift.mapper.17022 := 
+			swift:new(swift.field.swift.mapper.17022.string)
+swift.mapper.17024 := 
+			swift:new(swift.field.swift.mapper.17024.string)
+mexdex := 
+		swift:new(swift.field.mexdex.file.array.int, readCount=3, _defline=21, input=true
+			swift:mapping("Ext", swift:parameter("exec", swift.mapper.17022)
+			swift:parameter("root", swift.mapper.17024))
+		)
+swift.mapper.17027 := 
+			swift:new(swift.field.swift.mapper.17027.string)
+swift.mapper.17030 := 
+			swift:new(swift.field.swift.mapper.17030.string)
+path := 
+			swift:new(swift.field.path.string, _defline=26)
+swift.mapper.17032 := 
+			swift:new(swift.field.swift.mapper.17032.string)
+caselist := 
+		swift:new(swift.field.caselist.file, readCount=2, _defline=66
+			swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17032))
+		)
+cases := 
+			swift:new(swift.field.cases.string.array.int, readCount=3, _defline=72)
+
+
+genMesh := function(meshOut, o, e, caseParams, meshLocation, mesh) {
+	swift:unitStart("PROCEDURE", name="genMesh", line=38, outputs="meshOut,o,e")
+	swift:waitFor(caseParams, meshLocation, mesh)
+	k:tailcall(
+		swift:execute(
+			"genMesh",
+				swift:stageIn(mesh)
+				swift:stageOut(meshOut, o, e)
+	  		swift:commands(
+	  				swift:command("bash", null, swiftscript:filename(#_line=39
+	  				o
+	  			), swiftscript:filename(#_line=39
+	  				e
+	  			), swift.string.17000, caseParams, meshLocation)
+	  		)
+		)
+	)
+	swift:unitEnd("PROCEDURE", name="genMesh", line=38)}
+
+runOpenFOAM := function(bodyFiles, metricFile, metricImages, o, e, caseParams, meshLocation, meshOut, metricImagesLocation, openfoam, mexdex) {
+	swift:unitStart("PROCEDURE", name="runOpenFOAM", line=43, outputs="bodyFiles,metricFile,metricImages,o,e")
+	swift:waitFor(caseParams, meshLocation, meshOut, metricImagesLocation, openfoam, mexdex)
+	k:tailcall(
+		swift:execute(
+			"runOpenFOAM",
+				swift:stageIn(meshOut, openfoam, mexdex)
+				swift:stageOut(bodyFiles, metricFile, metricImages, o, e)
+	  		swift:commands(
+	  				swift:command("bash", null, swiftscript:filename(#_line=44
+	  				o
+	  			), swiftscript:filename(#_line=44
+	  				e
+	  			), swift.string.17001, caseParams, meshLocation, swiftscript:filename(#_line=44
+	  				bodyFiles
+	  			), swiftscript:filename(#_line=44
+	  				metricFile
+	  			), metricImagesLocation)
+	  		)
+		)
+	)
+	swift:unitEnd("PROCEDURE", name="runOpenFOAM", line=43)}
+
+prepInputs := function(out, params, s) {
+	swift:unitStart("PROCEDURE", name="prepInputs", line=32, outputs="out")
+	swift:waitFor(params, s)
+	k:tailcall(
+		swift:execute(
+			"prepInputs",
+				swift:stageIn(params, s)
+				swift:stageOut(out)
+	  		swift:commands(
+	  				swift:command("python", null, null, null, swift.string.17002, swiftscript:filename(#_line=34
+	  				params
+	  			), swiftscript:filename(#_line=34
+	  				out
+	  			))
+	  		)
+		)
+	)
+	swift:unitEnd("PROCEDURE", name="prepInputs", line=32)}
+
+runCalculix := function(metricFile, metricImages, o, e, caseParams, mapResults, meshLocation, meshOut, metricImagesLocation, calculix, mexdex) {
+	swift:unitStart("PROCEDURE", name="runCalculix", line=53, outputs="metricFile,metricImages,o,e")
+	swift:waitFor(caseParams, mapResults, meshLocation, meshOut, metricImagesLocation, calculix, mexdex)
+	k:tailcall(
+		swift:execute(
+			"runCalculix",
+				swift:stageIn(mapResults, meshOut, calculix, mexdex)
+				swift:stageOut(metricFile, metricImages, o, e)
+	  		swift:commands(
+	  				swift:command("bash", null, swiftscript:filename(#_line=54
+	  				o
+	  			), swiftscript:filename(#_line=54
+	  				e
+	  			), swift.string.17003, caseParams, meshLocation, swiftscript:filename(#_line=54
+	  				mapResults
+	  			), swiftscript:filename(#_line=54
+	  				metricFile
+	  			), metricImagesLocation)
+	  		)
+		)
+	)
+	swift:unitEnd("PROCEDURE", name="runCalculix", line=53)}
+
+postProcess := function(outcsv, outhtml, so, se, t, rpath, caselist, mexdex) {
+	swift:unitStart("PROCEDURE", name="postProcess", line=58, outputs="outcsv,outhtml,so,se")
+	swift:waitFor(t, rpath, caselist, mexdex)
+	k:tailcall(
+		swift:execute(
+			"postProcess",
+				swift:stageIn(t, caselist, mexdex)
+				swift:stageOut(outcsv, outhtml, so, se)
+	  		swift:commands(
+	  				swift:command("bash", null, swiftscript:filename(#_line=59
+	  				so
+	  			), swiftscript:filename(#_line=59
+	  				se
+	  			), swift.string.17004, swiftscript:filename(#_line=59
+	  				outcsv
+	  			), swiftscript:filename(#_line=59
+	  				outhtml
+	  			), rpath)
+	  		)
+		)
+	)
+	swift:unitEnd("PROCEDURE", name="postProcess", line=58)}
+
+mapMeshes := function(mapResults, o, e, bodyFiles, meshLocation, meshOut, mapper) {
+	swift:unitStart("PROCEDURE", name="mapMeshes", line=48, outputs="mapResults,o,e")
+	swift:waitFor(bodyFiles, meshLocation, meshOut, mapper)
+	k:tailcall(
+		swift:execute(
+			"mapMeshes",
+				swift:stageIn(bodyFiles, meshOut, mapper)
+				swift:stageOut(mapResults, o, e)
+	  		swift:commands(
+	  				swift:command("bash", null, swiftscript:filename(#_line=49
+	  				o
+	  			), swiftscript:filename(#_line=49
+	  				e
+	  			), swift.string.17005, swiftscript:filename(#_line=49
+	  				bodyFiles
+	  			), meshLocation, swiftscript:filename(#_line=49
+	  				mapResults
+	  			))
+	  		)
+		)
+	)
+	swift:unitEnd("PROCEDURE", name="mapMeshes", line=48)}
+
+restartLog(name = k:concat(contextAttribute("SWIFT:SCRIPT_NAME"), "-", contextAttribute("SWIFT:RUN_ID"))) {
+	swift:mains(
+		swift:startProgressTicker()
+		uparallel(
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17008)
+				swiftscript:arg$string$string$(#_line=10
+					swift.string.17006, swift.string.17007
+				)
+			)
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17010)
+				swift.string.17009
+			)
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17012)
+				swift.string.17011
+			)
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17013)
+				swift.string.17009
+			)
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17015)
+				swift.string.17014
+			)
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17016)
+				swift.string.17009
+			)
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17018)
+				swift.string.17017
+			)
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17019)
+				swift.string.17009
+			)
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17021)
+				swift.string.17020
+			)
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17022)
+				swift.string.17009
+			)
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17024)
+				swift.string.17023
+			)
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17027)
+				swiftscript:arg$string$string$(#_line=24
+					swift.string.17025, swift.string.17026
+				)
+			)
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17030)
+				swiftscript:arg$string$string$(#_line=25
+					swift.string.17028, swift.string.17029
+				)
+			)
+			swift:setFieldValue(
+				k:getAndDelete(swift.mapper.17032)
+				swift.string.17031
+			)
+			swift:setFieldValue(#_line=14
+				swift:readVar(outdir)
+				swift.string.17033
+			)
+			swift:setFieldValue(#_line=14
+				k:getAndDelete(casedir)
+				swiftscript:strcat(#_line=14
+					swift:readVar(outdir), swift.string.17034
+				)
+			)
+			swift:setFieldValue(#_line=26
+				k:getAndDelete(path)
+				swiftscript:toString(#_line=26
+					swiftscript:java(#_line=26
+						swift.string.17035, swift.string.17036, swift.string.17037
+					)
+				)
+			)
+			prepInputs(#_line=69
+				swift:readVar(caselist)
+				swift:readVar(params), swift:readVar(mexdex)
+			)
+			sequential(
+				swift:unitStart("INTERNALPROC", name="readData", outputs="cases")
+				readData(#_line=72
+			    	swift:readVar(cases)
+			    	swift:readVar(caselist)
+				)
+				swift:unitEnd("INTERNALPROC", name="readData")
+			)
+			sequential(
+				swift:unitStart("INTERNALPROC", name="tracef", outputs="")
+				tracef(#_line=74
+			parallel(
+			    	swift.string.17038
+			    	swiftscript:length(#_line=74
+			    		swift:readVar(cases)
+			    	)
+			)
+				)
+				swift:unitEnd("INTERNALPROC", name="tracef")
+			)
+			swift:tParallelFor(#_line=78, _kvar="caseIndex", _kvarField=swift.field.caseIndex.int, _vvar="c", rrefs="mexdex 2 mapper 1 openfoam 1 calculix 1 mesh 1",
+				getArrayIterator(swift:readVar(cases))) {
+
+				swift:unitStart("FOREACH_IT", line=78) 
+				meshLocation := 
+							swift:new(swift.field.meshLocation.string, readCount=6, _defline=83)
+				meshOut := 
+						swift:new(swift.field.meshOut.file.array.int, readCount=4, _defline=84
+							swift:mapping("FilesysMapper", swift:parameter("location", swift:readVar(meshLocation)))
+						)
+				swift.mapper.17041 := 
+							swift:new(swift.field.swift.mapper.17041.string)
+				mo := 
+						swift:new(swift.field.mo.file, _defline=85
+							swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17041))
+						)
+				swift.mapper.17043 := 
+							swift:new(swift.field.swift.mapper.17043.string)
+				me := 
+						swift:new(swift.field.me.file, _defline=86
+							swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17043))
+						)
+				swift.mapper.17046 := 
+							swift:new(swift.field.swift.mapper.17046.string)
+				bodyFiles := 
+						swift:new(swift.field.bodyFiles.file, readCount=2, _defline=90
+							swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17046))
+						)
+				swift.mapper.17048 := 
+							swift:new(swift.field.swift.mapper.17048.string)
+				metricFile := 
+						swift:new(swift.field.metricFile.file, _defline=91
+							swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17048))
+						)
+				metricImagesLocation := 
+							swift:new(swift.field.metricImagesLocation.string, readCount=3, _defline=92)
+				metricImages := 
+						swift:new(swift.field.metricImages.file.array.int, _defline=93
+							swift:mapping("FilesysMapper", swift:parameter("location", swift:readVar(metricImagesLocation)))
+						)
+				swift.mapper.17050 := 
+							swift:new(swift.field.swift.mapper.17050.string)
+				oo := 
+						swift:new(swift.field.oo.file, _defline=94
+							swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17050))
+						)
+				swift.mapper.17052 := 
+							swift:new(swift.field.swift.mapper.17052.string)
+				oe := 
+						swift:new(swift.field.oe.file, _defline=95
+							swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17052))
+						)
+				swift.mapper.17054 := 
+							swift:new(swift.field.swift.mapper.17054.string)
+				mapResults := 
+						swift:new(swift.field.mapResults.file, readCount=2, _defline=99
+							swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17054))
+						)
+				swift.mapper.17056 := 
+							swift:new(swift.field.swift.mapper.17056.string)
+				mapo := 
+						swift:new(swift.field.mapo.file, _defline=100
+							swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17056))
+						)
+				swift.mapper.17058 := 
+							swift:new(swift.field.swift.mapper.17058.string)
+				mape := 
+						swift:new(swift.field.mape.file, _defline=101
+							swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17058))
+						)
+				swift.mapper.17060 := 
+							swift:new(swift.field.swift.mapper.17060.string)
+				CCXmetricFile := 
+						swift:new(swift.field.CCXmetricFile.file, _defline=105
+							swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17060))
+						)
+				CCXmetricImagesLocation := 
+							swift:new(swift.field.CCXmetricImagesLocation.string, readCount=3, _defline=106)
+				CCXmetricImages := 
+						swift:new(swift.field.CCXmetricImages.file.array.int, _defline=107
+							swift:mapping("FilesysMapper", swift:parameter("location", swift:readVar(CCXmetricImagesLocation)))
+						)
+				swift.mapper.17062 := 
+							swift:new(swift.field.swift.mapper.17062.string)
+				calo := 
+						swift:new(swift.field.calo.file, _defline=108
+							swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17062))
+						)
+				swift.mapper.17064 := 
+							swift:new(swift.field.swift.mapper.17064.string)
+				cale := 
+						swift:new(swift.field.cale.file, _defline=109
+							swift:mapping("SingleFileMapper", swift:parameter("file", swift.mapper.17064))
+						)
+				uparallel(
+					swift:setFieldValue(
+						k:getAndDelete(swift.mapper.17041)
+						swiftscript:strcat(#_line=85
+							swift.string.17039, caseIndex, swift.string.17040
+						)
+					)
+					swift:setFieldValue(
+						k:getAndDelete(swift.mapper.17043)
+						swiftscript:strcat(#_line=86
+							swift.string.17039, caseIndex, swift.string.17042
+						)
+					)
+					swift:setFieldValue(
+						k:getAndDelete(swift.mapper.17046)
+						swiftscript:strcat(#_line=90
+							swift.string.17044, caseIndex, swift.string.17045
+						)
+					)
+					swift:setFieldValue(
+						k:getAndDelete(swift.mapper.17048)
+						swiftscript:strcat(#_line=91
+							swift.string.17044, caseIndex, swift.string.17047
+						)
+					)
+					swift:setFieldValue(
+						k:getAndDelete(swift.mapper.17050)
+						swiftscript:strcat(#_line=94
+							swift.string.17039, caseIndex, swift.string.17049
+						)
+					)
+					swift:setFieldValue(
+						k:getAndDelete(swift.mapper.17052)
+						swiftscript:strcat(#_line=95
+							swift.string.17039, caseIndex, swift.string.17051
+						)
+					)
+					swift:setFieldValue(
+						k:getAndDelete(swift.mapper.17054)
+						swiftscript:strcat(#_line=99
+							swift.string.17044, caseIndex, swift.string.17053
+						)
+					)
+					swift:setFieldValue(
+						k:getAndDelete(swift.mapper.17056)
+						swiftscript:strcat(#_line=100
+							swift.string.17039, caseIndex, swift.string.17055
+						)
+					)
+					swift:setFieldValue(
+						k:getAndDelete(swift.mapper.17058)
+						swiftscript:strcat(#_line=101
+							swift.string.17039, caseIndex, swift.string.17057
+						)
+					)
+					swift:setFieldValue(
+						k:getAndDelete(swift.mapper.17060)
+						swiftscript:strcat(#_line=105
+							swift.string.17044, caseIndex, swift.string.17059
+						)
+					)
+					swift:setFieldValue(
+						k:getAndDelete(swift.mapper.17062)
+						swiftscript:strcat(#_line=108
+							swift.string.17039, caseIndex, swift.string.17061
+						)
+					)
+					swift:setFieldValue(
+						k:getAndDelete(swift.mapper.17064)
+						swiftscript:strcat(#_line=109
+							swift.string.17039, caseIndex, swift.string.17063
+						)
+					)
+					sequential(
+						swift:unitStart("INTERNALPROC", name="trace", outputs="")
+						trace(#_line=80
+					    	caseIndex
+					    	c
+						)
+						swift:unitEnd("INTERNALPROC", name="trace")
+					)
+					swift:setFieldValue(#_line=83
+						swift:readVar(meshLocation)
+						swiftscript:strcat(#_line=83
+							swift.string.17044, caseIndex, swift.string.17065
+						)
+					)
+					genMesh(#_line=87
+						swift:readVar(meshOut), k:getAndDelete(mo), k:getAndDelete(me)
+						c, swift:readVar(meshLocation), swift:readVar(mesh)
+					)
+					swift:setFieldValue(#_line=92
+						swift:readVar(metricImagesLocation)
+						swiftscript:strcat(#_line=92
+							swift.string.17044, caseIndex, swift.string.17066
+						)
+					)
+					runOpenFOAM(#_line=96
+						swift:readVar(bodyFiles), k:getAndDelete(metricFile), k:getAndDelete(metricImages), k:getAndDelete(oo), k:getAndDelete(oe)
+						c, swift:readVar(meshLocation), swift:readVar(meshOut), swift:readVar(metricImagesLocation), swift:readVar(openfoam), swift:readVar(mexdex)
+					)
+					mapMeshes(#_line=102
+					parallel(
+						swift:readVar(mapResults), k:getAndDelete(mapo), k:getAndDelete(mape)
+						swift:readVar(bodyFiles), swiftscript:strcat(#_line=102
+							swift:readVar(meshLocation), swift.string.17067
+						), swift:readVar(meshOut), swift:readVar(mapper)
+					)
+					)
+					swift:setFieldValue(#_line=106
+						swift:readVar(CCXmetricImagesLocation)
+						swiftscript:strcat(#_line=106
+							swift.string.17044, caseIndex, swift.string.17068
+						)
+					)
+					runCalculix(#_line=110
+						k:getAndDelete(CCXmetricFile), k:getAndDelete(CCXmetricImages), k:getAndDelete(calo), k:getAndDelete(cale)
+						c, swift:readVar(mapResults), swift:readVar(meshLocation), swift:readVar(meshOut), swift:readVar(CCXmetricImagesLocation), swift:readVar(calculix), swift:readVar(mexdex)
+					)
+				)
+				swift:cleanDataset(oo)
+				swift:cleanDataset(mapResults)
+				swift:cleanDataset(mapo)
+				swift:cleanDataset(mo)
+				swift:cleanDataset(meshOut)
+				swift:cleanDataset(CCXmetricImages)
+				swift:cleanDataset(metricImages)
+				swift:cleanDataset(calo)
+				swift:cleanDataset(oe)
+				swift:cleanDataset(me)
+				swift:cleanDataset(metricFile)
+				swift:cleanDataset(cale)
+				swift:cleanDataset(mape)
+				swift:cleanDataset(bodyFiles)
+				swift:cleanDataset(CCXmetricFile)
+				swift:unitEnd("FOREACH_IT", line=78)
+			}
+		)
+		swift:stopProgressTicker()
+	)
+}
+
+swift:cleanDataset(cases)
+swift:cleanDataset(mapper)
+swift:cleanDataset(params)
+swift:cleanDataset(openfoam)
+swift:cleanDataset(mexdex)
+swift:cleanDataset(calculix)
+swift:cleanDataset(mesh)
+swift:cleanDataset(caselist)
+swift:cleanDataset(shutdown=true)

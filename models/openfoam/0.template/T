@@ -1,0 +1,41 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+|       o          |                                                          |
+|    o     o       | HELYX-OS                                                  |
+|   o   O   o      | Version: v2.4.0                                           |
+|    o     o       | Web:     http://www.engys.com                            |
+|       o          |                                                          |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class volScalarField;
+    location "0";
+    object T;
+}
+dimensions [ 0 0 0 1 0 0 0 ];
+internalField uniform 300.0;
+boundaryField
+{
+
+    //- Set patchGroups for constraint patches
+    #includeEtc "caseDicts/setConstraintTypes"
+
+    body
+    {
+        type zeroGradient;
+    }
+
+    inlet
+    {
+        type inletOutlet;
+        inletValue uniform @@inletTemp@@;
+        value uniform @@inletTemp@@;
+    }
+
+    outlet
+    {
+        type zeroGradient;
+    }
+
+}

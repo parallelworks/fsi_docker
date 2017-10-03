@@ -1,0 +1,11 @@
+INFO:MainThread:Problem loading PortManager file: /tmp/.omniORB_PortManager.cfg
+INFO:PortManager:Problem loading PortManager file: /tmp/.omniORB_PortManager.cfg
+th. 139688021968768 - Trace /export/home/salome/SALOME-8.2.0-UB14.04/SOURCES/KERNEL/src/ModuleCatalog/SALOME_ModuleCatalog_Server.cxx [101] : Module Catalog Server: Naming Service was found
+Warning: this type (Study,objref) already exists, it will be ignored.
+Warning, no type found for resource "localhost", using default value "single_machine"
+ tesusp: suppression de           2  sommets de te trop proches de la frontiere
+ tesusp: suppression de           2  sommets de te trop proches de la frontiere
+ tesusp: suppression de           4  sommets de te trop proches de la frontiere
+ tesusp: suppression de           6  sommets de te trop proches de la frontiere
+ tesusp: suppression de           6  sommets de te trop proches de la frontiere
+th. 140188516710144 - Trace /export/home/salome/SALOME-8.2.0-UB14.04/SOURCES/KERNEL/src/NamingService/SALOME_NamingService.cxx [1379] : Destroy_Directory(): CosNaming::NamingContext::NoEmpty /Study/ is not empty

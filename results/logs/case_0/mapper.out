@@ -1,0 +1,62 @@
+
+Running Mapper...
+results/case_0/openfoam/results.tgz results/case_0/mesh/mesh.exo results/case_0/mapper/results.tgz
+
+body/
+body/body_20.vtk
+body/body_12.vtk
+body/body_36.vtk
+body/body_8.vtk
+body/body_28.vtk
+body/body_48.vtk
+body/body_16.vtk
+body/body_0.vtk
+body/body_24.vtk
+body/body_32.vtk
+body/body_40.vtk
+body/body_4.vtk
+body/body_44.vtk
+#map.py#
+bc
+body
+map.py
+map.sh
+map.sh_old
+map.sh_old_with_docker
+map.sh_works
+map.sh~
+mesh.exo
+results.tgz
+test.py
+
+Running Field Mapper...
+
+Looping through files...
+Mapping body/body_0.vtk to mesh.exo
+Mapping body/body_4.vtk to mesh.exo
+Mapping body/body_8.vtk to mesh.exo
+Mapping body/body_12.vtk to mesh.exo
+Mapping body/body_16.vtk to mesh.exo
+Mapping body/body_20.vtk to mesh.exo
+Mapping body/body_24.vtk to mesh.exo
+Mapping body/body_28.vtk to mesh.exo
+Mapping body/body_32.vtk to mesh.exo
+Mapping body/body_36.vtk to mesh.exo
+Mapping body/body_40.vtk to mesh.exo
+Mapping body/body_44.vtk to mesh.exo
+Mapping body/body_48.vtk to mesh.exo
+bc/
+bc/T/
+bc/T/T_28.inp
+bc/T/T_12.inp
+bc/T/T_40.inp
+bc/T/T_0.inp
+bc/T/T_20.inp
+bc/T/T_48.inp
+bc/T/T_8.inp
+bc/T/T_4.inp
+bc/T/T_24.inp
+bc/T/T_32.inp
+bc/T/T_16.inp
+bc/T/T_44.inp
+bc/T/T_36.inp

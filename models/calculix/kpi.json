@@ -1,0 +1,30 @@
+{
+    "stl": {
+        "image": "iso", 
+        "imageflip": "false", 
+        "bodyopacity": "0.8", 
+        "type": "Basic"
+    },
+   "part_T": {
+    "opacity": "0.6",
+    "invertcolor": "0",
+    "min": "300",
+    "max": "350",
+    "image": "iso",
+    "colorscale": "Cold and Hot",
+    "field": "NT",
+    "discretecolors": "15",
+    "bodyopacity": "0.0",
+    "position": "1 center center",
+    "type": "Clip",
+    "invert": "true",
+    "plane": "X",
+    "animation": "true",
+    "barTitle": "Temperature (K)",
+    "ComponentTitle": "",
+    "FontColor": "0.0 0.0 .0",
+    "FontSize": "14",
+    "LabelFormat": "%4.3g",
+    "extractStats": "true"
+  }
+}

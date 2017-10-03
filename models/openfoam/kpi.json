@@ -1,0 +1,30 @@
+{
+    "stl": {
+        "image": "iso", 
+        "imageflip": "false", 
+        "bodyopacity": "0.8", 
+        "type": "Basic"
+    },
+   "fluid_T": {
+    "opacity": "0.8",
+    "invertcolor": "0",
+    "min": "300",
+    "max": "400",
+    "image": "iso",
+    "colorscale": "Black-Body Radiation",
+    "field": "T",
+    "discretecolors": "15",
+    "bodyopacity": "0.0",
+    "position": "center center 0.00125",
+    "type": "Clip",
+    "invert": "true",
+    "plane": "Z",
+    "animation": "true",
+    "barTitle": "Temperature (K)",
+    "ComponentTitle": "",
+    "FontColor": "0.0 0.0 .0",
+    "FontSize": "14",
+    "LabelFormat": "%4.3g",
+    "extractStats": "true"
+  }
+}

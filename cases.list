@@ -1,0 +1,1 @@
+Height,0.003,InletHeight,0.5,InletLength,0.001,InletOffset,-0.5,Length,0.01,OutletHeight,1,OutletLength,0.001,OutletOffset,0.5,Thickness,0.00025,Width,0.0125,blockMeshRes,50,deltaT,1,endTime,50,inletTemp,400,inletVelocity,2.5,meshRes,0.0004,writeInterval,4

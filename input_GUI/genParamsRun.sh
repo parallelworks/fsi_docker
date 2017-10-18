@@ -1,0 +1,20 @@
+#!/bin/bash
+
+path2paramsFile=${18}
+echo "Length;geometry;$1">"$path2paramsFile"
+echo "Width;geometry;$2">>"$path2paramsFile"
+echo "Height;geometry;$3">>"$path2paramsFile"
+echo "Thickness;geometry;$4">>"$path2paramsFile"
+echo "InletLength;geometry;$5">>"$path2paramsFile"
+echo "InletHeight;geometry;$6">>"$path2paramsFile"
+echo "InletOffset;geometry;$7">>"$path2paramsFile"
+echo "OutletLength;geometry;$8">>"$path2paramsFile"
+echo "OutletHeight;geometry;$9">>"$path2paramsFile"
+echo "OutletOffset;geometry;${10}">>"$path2paramsFile"
+echo "endTime;runtime;${11}">>"$path2paramsFile"
+echo "writeInterval;runtime;${12}">>"$path2paramsFile"
+echo "deltaT;runtime;${13}">>"$path2paramsFile"
+echo "meshRes;mesh;${14}">>"$path2paramsFile"
+echo "blockMeshRes;mesh;${15}">>"$path2paramsFile"
+echo "inletVelocity;fluid;${16}">>"$path2paramsFile"
+echo "inletTemp;fluid;${17}">>"$path2paramsFile"

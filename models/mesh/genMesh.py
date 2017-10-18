@@ -99,6 +99,33 @@ geompy.ExportSTL(Fuse_2, meshFileName.replace("mesh.unv","body.stl"), False )
 geompy.ExportSTL(Inlet, meshFileName.replace("mesh.unv","inlet.stl"), False )
 geompy.ExportSTL(Outlet, meshFileName.replace("mesh.unv","outlet.stl"), False )
 
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["VERTEX"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["VERTEX"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["EDGE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["EDGE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["EDGE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["EDGE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["EDGE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["EDGE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["EDGE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["EDGE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["EDGE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["FACE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["FACE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["FACE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["FACE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["FACE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["FACE"])
+listSubShapeIDs = geompy.SubShapeAllIDs(Fuse_2, geompy.ShapeType["FACE"])
+
+FixedLine = geompy.CreateGroup(Fuse_2, geompy.ShapeType["EDGE"])
+geompy.UnionIDs(FixedLine, [32, 17])
+inletSurface = geompy.CreateGroup(Fuse_2, geompy.ShapeType["FACE"])
+geompy.UnionIDs(inletSurface, [66])
+geompy.addToStudy( Fuse_2, 'Fuse_2' )
+geompy.addToStudyInFather( Fuse_2, FixedLine, 'FixedLine' )
+geompy.addToStudyInFather( Fuse_2, inletSurface, 'inletSurface' )
+
 
 ###
 ### SMESH component
@@ -115,5 +142,23 @@ MEFISTO_2D = Mesh_1.Triangle(algo=smeshBuilder.MEFISTO)
 NETGEN_3D = Mesh_1.Tetrahedron()
 
 isDone = Mesh_1.Compute()
+
+FixedLine_1 = Mesh_1.GroupOnGeom(FixedLine,'FixedLine',SMESH.EDGE)
+inletSurface_1 = Mesh_1.GroupOnGeom(inletSurface,'inletSurface',SMESH.FACE)
+FixedLine_2 = Mesh_1.GroupOnGeom(FixedLine,'FixedLine',SMESH.NODE)
+inletSurface_2 = Mesh_1.GroupOnGeom(inletSurface,'inletSurface',SMESH.NODE)
+
+
+## Set names of Mesh objects
+smesh.SetName(Regular_1D.GetAlgorithm(), 'Regular_1D')
+smesh.SetName(NETGEN_3D.GetAlgorithm(), 'NETGEN_3D')
+smesh.SetName(MEFISTO_2D.GetAlgorithm(), 'MEFISTO_2D')
+smesh.SetName(inletSurface_1, 'inletSurface')
+smesh.SetName(Mesh_1.GetMesh(), 'Mesh_1')
+smesh.SetName(FixedLine_1, 'FixedLine')
+smesh.SetName(inletSurface_2, 'inletSurface')
+smesh.SetName(FixedLine_2, 'FixedLine')
+
+
 Mesh_1.ExportUNV( meshFileName )
 #Mesh_1.ExportSTL(meshFileName.replace("mesh.unv","mesh.stl"), True )

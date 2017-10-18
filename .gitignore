@@ -1,0 +1,11 @@
+*~
+/run*/
+/swiftwork/
+*.kml
+/tmp*
+/results/
+models.tar
+/logs/
+/models-clean/
+params.txt
+tests.tar.gz

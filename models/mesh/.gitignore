@@ -1,0 +1,9 @@
+*.pyc
+Mesh_4.unv
+genMesh_fixedLine.py
+genMesh_fixedLine_fixedInlet.py
+genMesh_fixedLine_fixedInlet_2.py
+genMesh_marmar.sh
+mesh_fixed.hdf
+mesh_fixed2.hdf
+output.unv

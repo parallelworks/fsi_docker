@@ -15,6 +15,9 @@ cd tmp
 cat > mesh.fbd <<END
 read $AbqMeshFile
 send all abq
+send all abq nam
+send FixedLine abq spc 123
+send inletSurface abq spc t 400
 END
 
 cat > mesh.inp <<END
@@ -36,6 +39,9 @@ cat > mesh.inp <<END
 *specific heat
 ** J/kg-K
 500
+
+*BOUNDARY
+NFixedLine,1,3
 
 ** material assignment to bodies
 *solid section, elset=Eall, material=steel
@@ -62,6 +68,10 @@ END
 #$dir/ccx-212-patch/src/ccx_2.12_MT mesh -o exo
 
 docker run --rm -i -v `pwd`:/scratch -w /scratch -u 0:0 avidalto/calculix:v13 cgx_2.12 -bg mesh.fbd
+
+cat all.msh *.nam *.bou  > allinone.inp 
+mv allinone.inp all.msh
+
 docker run --rm -i -v `pwd`:/scratch -w /scratch -u 0:0 avidalto/calculix:v13 cp /lib/ccx-212-patch.tgz .
 tar -xvzf ccx**.tgz
 ccx-212-patch/src/ccx_2.12_MT mesh -o exo

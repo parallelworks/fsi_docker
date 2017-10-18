@@ -94,6 +94,7 @@ foreach c,caseIndex in cases{
   file oo 	          <strcat("results/logs/case_",caseIndex,"/openfoam.out")>;
   file oe 	          <strcat("results/logs/case_",caseIndex,"/openfoam.err")>;
   (bodyFiles, metricFile, metricImages, oo, oe) = runOpenFOAM(c, meshLocation, meshOut, metricImagesLocation, openfoam, mexdex);
+  metrics[2*caseIndex-1]=metricFile; # Odd indices for openfoam
 
   # MAP THE MESHES
   file mapResults       <strcat("results/case_",caseIndex,"/mapper/results.tgz")>;
@@ -108,10 +109,10 @@ foreach c,caseIndex in cases{
   file calo 	          <strcat("results/logs/case_",caseIndex,"/calculix.out")>;
   file cale 	          <strcat("results/logs/case_",caseIndex,"/calculix.err")>;
   (CCXmetricFile,CCXmetricImages,calo,cale) = runCalculix(c, mapResults, meshLocation, meshOut, CCXmetricImagesLocation, calculix, mexdex);
-
+  metrics[2*caseIndex]=CCXmetricFile; # Even indices for calculix
 }
 
 # For all cases creates a csv list and html file for visualization and organization of results
-#file spout <"logs/post.out">;
-#file sperr <"logs/post.err">;
-#(outcsv,outhtml,spout,sperr) = postProcess(metrics,path,caselist,mexdex);
+file spout <"logs/post.out">;
+file sperr <"logs/post.err">;
+(outcsv,outhtml,spout,sperr) = postProcess(metrics,path,caselist,mexdex);

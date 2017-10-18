@@ -27,6 +27,9 @@ cat >> $file <<END
 ** J/kg-K
 500
 
+*BOUNDARY
+NFixedLine,1,3
+
 ** material assignment to bodies
 *solid section, elset=Eall, material=steel
 

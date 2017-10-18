@@ -1,0 +1,17 @@
+Length;geometry;lala
+Width;geometry;1
+Height;geometry;1
+Thickness;geometry;1
+InletLength;geometry;1
+InletHeight;geometry;1
+InletOffset;geometry;1
+OutletLength;geometry;1
+OutletHeight;geometry;1
+OutletOffset;geometry;1
+endTime;runtime;1
+writeInterval;runtime;1
+deltaT;runtime;1
+meshRes;mesh;1
+blockMeshRes;mesh;1
+inletVelocity;fluid;1
+inletTemp;fluid;1

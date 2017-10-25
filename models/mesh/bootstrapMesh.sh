@@ -16,8 +16,6 @@ cat > mesh.fbd <<END
 read $AbqMeshFile
 send all abq
 send all abq nam
-send FixedLine abq spc 123
-send inletSurface abq spc t 400
 END
 
 cat > mesh.inp <<END

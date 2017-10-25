@@ -20,7 +20,14 @@ boundaryField
     //- Set patchGroups for constraint patches
     #includeEtc "caseDicts/setConstraintTypes"
 
-    body
+    ZeroFluxFaces
+    {
+        type fixedFluxPressure;
+        value uniform 0;
+        rho rhok;
+    }
+
+    HeatFluxFaces
     {
         type fixedFluxPressure;
         value uniform 0;

@@ -53,7 +53,7 @@ run_command="docker run --rm --user root -i -v `pwd`:/scratch -w /scratch parall
 echo $run_command ./runOpenFOAM.sh
 $run_command ./runOpenFOAM.sh
 
-tar czvf tmp.tgz -C VTK body 
+tar czvf tmp.tgz -C VTK allPatches 
 mv tmp.tgz $bodyFiles
 
 # metric extraction

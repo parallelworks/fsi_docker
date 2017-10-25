@@ -21,7 +21,14 @@ boundaryField
     //- Set patchGroups for constraint patches
     #includeEtc "caseDicts/setConstraintTypes"
 
-    body
+    ZeroFluxFaces
+    {
+        type alphatJayatillekeWallFunction;
+        Prt 0.85;
+        value uniform 0.0;
+    }
+
+    HeatFluxFaces
     {
         type alphatJayatillekeWallFunction;
         Prt 0.85;

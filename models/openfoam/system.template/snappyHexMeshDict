@@ -19,10 +19,17 @@ FoamFile
     addLayers true;
     geometry
     {
-        body.stl
+        ZeroFluxFaces.stl
         {
             type triSurfaceMesh;
-            name body;
+            name ZeroFluxFaces;
+            appendRegionName false;
+        }
+
+        HeatFluxFaces.stl
+        {
+            type triSurfaceMesh;
+            name HeatFluxFaces;
             appendRegionName false;
         }
 
@@ -49,7 +56,12 @@ FoamFile
         );
         refinementSurfaces
         {
-            body
+            ZeroFluxFaces
+            {
+                level ( 1 1 );
+            }
+
+            HeatFluxFaces
             {
                 level ( 1 1 );
             }

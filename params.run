@@ -8,10 +8,12 @@ InletOffset;geometry;-0.5
 OutletLength;geometry;0.001
 OutletHeight;geometry;1
 OutletOffset;geometry;0.5
-endTime;runtime;10:12:1
+endTime;runtime;20:40:10
 writeInterval;runtime;4
 deltaT;runtime;1
 meshRes;mesh;0.0004
 blockMeshRes;mesh;50
 inletVelocity;fluid;2.5
-inletTemp;fluid;400
+inletTemp;fluid;300
+boxHeatFlux;fluid;10000
+plateHeatFlux;fluid;5000

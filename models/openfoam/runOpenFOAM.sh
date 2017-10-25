@@ -31,4 +31,5 @@ mpirun --allow-run-as-root  -np $NP $SOLVER -parallel
 # reconstruction
 reconstructPar -withZero
 
-foamToVTK -useTimeName #-ascii
+#foamToVTK -useTimeName #-ascii
+foamToVTK -useTimeName     -allPatches -noInternal # -latestTime #-ascii

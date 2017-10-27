@@ -8,3 +8,4 @@ models.tar
 /logs/
 /models-clean/
 params.txt
+tests.tar.gz

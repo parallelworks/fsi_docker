@@ -28,16 +28,16 @@ InletHeight = data_IO.read_float_from_file_pointer(in_fp, "InletHeight")
 OutletHeight = data_IO.read_float_from_file_pointer(in_fp, "OutletHeight")
 InletOffset = data_IO.read_float_from_file_pointer(in_fp, "InletOffset")
 OutletOffset = data_IO.read_float_from_file_pointer(in_fp, "OutletOffset")
-HeatSource_LX = 0.002 
-HeatSource_LY = 0.003
-HeatSource_LZ = 0.001
-HeatSource_X = 0.002 
-HeatSource_Y = -0.001
-plate_LX = 0.008
-plate_LY = 0.01
-plate_LZ = 0.0005
-plate_X = 0.0
-plate_Y = 0.0
+HeatSource_LX = data_IO.read_float_from_file_pointer(in_fp, "BoxLength") # 0.002 
+HeatSource_LY = data_IO.read_float_from_file_pointer(in_fp, "BoxWidth") # 0.003
+HeatSource_LZ = data_IO.read_float_from_file_pointer(in_fp, "BoxHeight") # 0.001
+HeatSource_X = data_IO.read_float_from_file_pointer(in_fp, "BoxX") # 0.002 
+HeatSource_Y = data_IO.read_float_from_file_pointer(in_fp, "BoxY") #-0.001
+plate_LX = data_IO.read_float_from_file_pointer(in_fp, "PlateLength") # 0.008
+plate_LY = data_IO.read_float_from_file_pointer(in_fp, "PlateWidth") # 0.01
+plate_LZ = data_IO.read_float_from_file_pointer(in_fp, "PlateHeight") #0.0005
+plate_X = data_IO.read_float_from_file_pointer(in_fp, "PlateX") #0.0
+plate_Y = data_IO.read_float_from_file_pointer(in_fp, "PlateY") #0.0
 
 
 # mesh parameters

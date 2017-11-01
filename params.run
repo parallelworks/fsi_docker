@@ -1,12 +1,12 @@
-Length;geometry;0.01
-Width;geometry;0.0125
-Height;geometry;0.003
+Length;geometry;0.03
+Width;geometry;0.03
+Height;geometry;0.03
 Thickness;geometry;0.00025
-InletLength;geometry;0.001
+InletLength;geometry;0.01
 InletHeight;geometry;0.5
 InletOffset;geometry;-0.5
-OutletLength;geometry;0.001
-OutletHeight;geometry;1
+OutletLength;geometry;0.01
+OutletHeight;geometry;0.75
 OutletOffset;geometry;0.5
 BoxLength;geometry;0.002
 BoxWidth;geometry;0.003
@@ -21,7 +21,7 @@ PlateY;geometry;0.0
 endTime;runtime;12
 writeInterval;runtime;4
 deltaT;runtime;1
-meshRes;mesh;0.0004
+meshRes;mesh;0.002
 blockMeshRes;mesh;50
 inletVelocity;fluid;2.5
 inletTemp;fluid;300

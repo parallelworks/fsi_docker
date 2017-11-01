@@ -44,6 +44,10 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     pval=$(echo $line | cut -d " " -f2 | tr -d '[:space:]')
     echo $pname $pval
     find ../openfoam -type f  -not -path "*/polyMesh/*" -not -path "*/0.template/*" -not -path "*/system.template/*" -exec sed -i "s/@@$pname@@/$pval/g" {} \;
+	# Define the blockMeshRes variable
+	if [ "$pname" == "blockMeshRes" ]; then
+		blockMeshResolution=$pval
+	fi 
 done < $caseParams
 echo "Done replacing parameters"
 
@@ -51,7 +55,7 @@ echo "Done replacing parameters"
 run_command="docker run --rm --user root -i -v `pwd`:/scratch -w /scratch parallelworks/openfoam:4.1_paraview"
 #run_command=""
 echo $run_command ./runOpenFOAM.sh
-$run_command ./runOpenFOAM.sh
+$run_command ./runOpenFOAM.sh $blockMeshResolution
 
 tar czvf tmp.tgz -C VTK allPatches 
 mv tmp.tgz $bodyFiles

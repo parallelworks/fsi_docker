@@ -81,23 +81,59 @@ Extrusion_6 = geompy.MakePrismVecH(Face_3, OZ, Thickness)
 Fuse_1 = geompy.MakeFuseList([Extrusion_1, Extrusion_2, Extrusion_3, Extrusion_4, Extrusion_5, Extrusion_6], True, True)
 
 # inlet
-Circle_1 = geompy.MakeCircle(O, OY, ((Height-(2*Thickness))/2)*InletHeight)
-Circle_2 = geompy.MakeCircle(O, OY, ((Height-(2*Thickness))/2)*InletHeight-Thickness*InletHeight)
-Face_7 = geompy.MakeFaceWires([Circle_1, Circle_2], 1)
-Translation_2 = geompy.MakeTranslation(Face_7, 0, (Width/2)-Thickness, Height/2)
-Extrusion_7 = geompy.MakePrismVecH(Translation_2, OY, InletLength+Thickness)
-Extrusion_7a = geompy.MakeTranslation(Extrusion_7, (Length/2-((Height-(2*Thickness))/2)-Thickness)*InletOffset , 0, 0)
+R_I0 = (Height-(2*Thickness))/2
+R_I2 = R_I0 * InletHeight
+R_I1 = (R_I0 - Thickness) * InletHeight
+X_in = (Length / 2.0 - R_I0) * InletOffset
+Y_in = (Width/2)-Thickness
+Z_in = Height/2.0
+# Circle_1 = geompy.MakeCircle(O, OY, R_I2)
+# Circle_2 = geompy.MakeCircle(O, OY, R_I1)
+# Face_7 = geompy.MakeFaceWires([Circle_1, Circle_2], 1)
+# Translation_2 = geompy.MakeTranslation(Face_7, X_in, Y_in, Z_in)
+# Extrusion_7a = geompy.MakePrismVecH(Translation_2, OY, InletLength+Thickness)
+
+# inlet2
+Vertex_I = geompy.MakeVertex(X_in, Y_in, Z_in)
+Cylinder_I2 = geompy.MakeCylinder(Vertex_I, OY, R_I2, InletLength + Thickness)
+Cylinder_I1 = geompy.MakeCylinder(Vertex_I, OY, R_I1, InletLength + Thickness)
+Extrusion_7a = geompy.MakeCutList(Cylinder_I2, [Cylinder_I1], True)
+
+
 
 # outlet
-Circle_3 = geompy.MakeCircle(O, OY, ((Height-(2*Thickness))/2)*OutletHeight)
-Circle_4 = geompy.MakeCircle(O, OY, ((Height-(2*Thickness))/2)*OutletHeight-Thickness*OutletHeight)
-Face_8 = geompy.MakeFaceWires([Circle_3, Circle_4], 1)
-Translation_22 = geompy.MakeTranslation(Face_8, 0, -((Width/2)-Thickness), Height/2)
-Extrusion_8 = geompy.MakePrismVecH(Translation_22, OY, -(OutletLength+Thickness))
-Extrusion_8a = geompy.MakeTranslation(Extrusion_8, (Length/2-((Height-(2*Thickness))/2)-Thickness)*OutletOffset , 0, 0)
+R_O0 = (Height-(2*Thickness))/2
+R_O2 = R_O0 * OutletHeight
+R_O1 = (R_O0 - Thickness) * OutletHeight
+X_out = (Length / 2.0 - R_O0) * OutletOffset
+Y_out = -((Width/2)-Thickness)
+Z_out = Height/2.0
+
+Vertex_O = geompy.MakeVertex(X_out, Y_out, Z_out)
+Cylinder_O2_mr = geompy.MakeCylinder(Vertex_O, OY, R_O2, OutletLength + Thickness)
+Cylinder_O1_mr = geompy.MakeCylinder(Vertex_O, OY, R_O1, OutletLength + Thickness)
+Cylinder_O2 = geompy.MakeMirrorByPoint(Cylinder_O2_mr, Vertex_O) 
+Cylinder_O1 = geompy.MakeMirrorByPoint(Cylinder_O1_mr, Vertex_O) 
+Extrusion_8a = geompy.MakeCutList(Cylinder_O2, [Cylinder_O1], True)
+
+# Cylinder_O2 = geompy.MakeCylinder(Vertex_O, OY, R_O2, OutletLength + Thickness)
+# Cylinder_O1 = geompy.MakeCylinder(Vertex_O, OY, R_O1, OutletLength + Thickness)
+# Cut_out = geompy.MakeCutList(Cylinder_O2, [Cylinder_O1], True)
+# Extrusion_8a = geompy.MakeMirrorByPoint(Cut_out, Vertex_O)
+
+
+# Circle_3 = geompy.MakeCircle(O, OY, R_O2)
+# Circle_4 = geompy.MakeCircle(O, OY, R_O1)
+# Face_8 = geompy.MakeFaceWires([Circle_3, Circle_4], 1)
+# Translation_22 = geompy.MakeTranslation(Face_8, X_out, Y_out, Z_out)
+# Extrusion_8a = geompy.MakePrismVecH(Translation_22, OY, -(OutletLength+Thickness))
+
 
 Cut_1 = geompy.MakeCutList(Fuse_1, [Extrusion_7a, Extrusion_8a], True)
-[Solid_1,Solid_2,Solid_3] = geompy.ExtractShapes(Cut_1, geompy.ShapeType["SOLID"], True)
+Solid_1 = geompy.GetShapesOnShapeAsCompound(Cylinder_I2, Cut_1, geompy.ShapeType["SOLID"], GEOM.ST_ONIN)
+Solid_3 = geompy.GetShapesOnShapeAsCompound(Cylinder_O2, Cut_1, geompy.ShapeType["SOLID"], GEOM.ST_ONIN)
+
+[Solid_1a,Solid_2,Solid_3a] = geompy.ExtractShapes(Cut_1, geompy.ShapeType["SOLID"], True)
 
 # Add a block for a heat source
 
@@ -176,8 +212,46 @@ geompy.addToStudy( O, 'O' )
 geompy.addToStudy( OX, 'OX' )
 geompy.addToStudy( OY, 'OY' )
 geompy.addToStudy( OZ, 'OZ' )
+
+geompy.addToStudy( Translation_1, 'Translation_1' )
+geompy.addToStudy( Extrusion_1, 'Extrusion_1' )
+geompy.addToStudy( Extrusion_2, 'Extrusion_2' )
+geompy.addToStudy( Extrusion_3, 'Extrusion_3' )
+geompy.addToStudy( Extrusion_4, 'Extrusion_4' )
+geompy.addToStudy( Extrusion_5, 'Extrusion_5' )
+geompy.addToStudy( Extrusion_6, 'Extrusion_6' )
+geompy.addToStudy( Fuse_1, 'Fuse_1' )
+# geompy.addToStudy( Circle_1, 'Circle_1' )
+# geompy.addToStudy( Circle_2, 'Circle_2' )
+geompy.addToStudy( Face_1, 'Face_1' )
+geompy.addToStudy( Face_2, 'Face_2' )
+#geompy.addToStudy( Face_7, 'Face_7' )
+#geompy.addToStudy( Face_8, 'Face_8' )
+#geompy.addToStudy( Translation_2, 'Translation_2' )
+#geompy.addToStudy( Translation_22, 'Translation_22' )
+#geompy.addToStudy( Extrusion_8, 'Extrusion_8' )
+geompy.addToStudy( Cut_1, 'Cut_1' )
+#geompy.addToStudy( Cut_1out, 'Cut_1out' )
+geompy.addToStudy( Solid_1, 'Solid_1' )
+geompy.addToStudy( Solid_2, 'Solid_2' )
+geompy.addToStudy( Solid_3, 'Solid_3' )
+# geompy.addToStudy( Solid_1out, 'Solid_1out' )
+# geompy.addToStudy( Solid_2out, 'Solid_2out' )
+geompy.addToStudy( InFace, 'InFace' )
+geompy.addToStudy( OutFace, 'OutFace' )
+geompy.addToStudy( Inlet, 'Inlet' )
+geompy.addToStudy( Outlet, 'Outlet' )
+
+geompy.addToStudy( Vertex_I, 'Vertex_I')
+geompy.addToStudy( Cylinder_I1, 'Cylinder_I1')
+geompy.addToStudy( Cylinder_I2, 'Cylinder_I2')
 geompy.addToStudy( Extrusion_7a, 'Extrusion_7a')
+
+geompy.addToStudy( Vertex_O, 'Vertex_O')
+geompy.addToStudy( Cylinder_O1, 'Cylinder_O1')
+geompy.addToStudy( Cylinder_O2, 'Cylinder_O2')
 geompy.addToStudy( Extrusion_8a, 'Extrusion_8a')
+
 geompy.addToStudy( Solid_2, 'Solid_2' )
 geompy.addToStudy( heatSource, 'heatSource' )
 geompy.addToStudy( heatSource_1, 'heatSource_1' )

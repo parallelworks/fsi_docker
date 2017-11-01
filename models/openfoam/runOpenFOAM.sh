@@ -1,5 +1,7 @@
 #!/bin/bash
 
+blockMeshResolution=$1
+
 FOAM_INST_DIR=/opt
 OPENFOAM_PATH=/opt/openfoam4
 . $OPENFOAM_PATH/etc/bashrc
@@ -12,6 +14,10 @@ sed -i "s/.*numberOfSubdomains.*/numberOfSubdomains $NP;/" system/decomposeParDi
 rm -rf constant/polyMesh
 
 # meshing
+
+# Generate the blockMeshDict file based on the body.stl dimensions
+python writeBlockMeshDictFile.py  constant/triSurface/body.stl system $blockMeshResolution
+
 blockMesh -dict system/blockMeshDict
 decomposePar -force -noFunctionObjects
 mpirun --allow-run-as-root -np $NP snappyHexMesh -parallel -overwrite

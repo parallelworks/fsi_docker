@@ -48,9 +48,9 @@ def calcLooseBoundingBox(tightBndBox):
     bnd_orderMag = calcBoundingBoxSizeOrderMag(tightBndBox)
     bndBox = tightBndBox
     for i in range(3):
-        bndBox[i] = floor2OrderMag(bndBox[i] - bnd_orderMag[i]/2.0 -.01, bnd_orderMag[i])
+        bndBox[i] = floor2OrderMag(bndBox[i] - bnd_orderMag[i]/2.0, bnd_orderMag[i])
     for i in range(3, 6):
-        bndBox[i] = ceil2OrderMg(bndBox[i] + bnd_orderMag[i-3]/2.0 + 0.01, bnd_orderMag[i-3])
+        bndBox[i] = ceil2OrderMg(bndBox[i] + bnd_orderMag[i-3]/2.0, bnd_orderMag[i-3])
     return bndBox
 
 

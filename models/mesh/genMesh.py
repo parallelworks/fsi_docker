@@ -28,16 +28,34 @@ InletHeight = data_IO.read_float_from_file_pointer(in_fp, "InletHeight")
 OutletHeight = data_IO.read_float_from_file_pointer(in_fp, "OutletHeight")
 InletOffset = data_IO.read_float_from_file_pointer(in_fp, "InletOffset")
 OutletOffset = data_IO.read_float_from_file_pointer(in_fp, "OutletOffset")
+
 HeatSource_LX = data_IO.read_float_from_file_pointer(in_fp, "BoxLength") # 0.002 
 HeatSource_LY = data_IO.read_float_from_file_pointer(in_fp, "BoxWidth") # 0.003
 HeatSource_LZ = data_IO.read_float_from_file_pointer(in_fp, "BoxHeight") # 0.001
 HeatSource_X = data_IO.read_float_from_file_pointer(in_fp, "BoxX") # 0.002 
 HeatSource_Y = data_IO.read_float_from_file_pointer(in_fp, "BoxY") #-0.001
+
+
+
 plate_LX = data_IO.read_float_from_file_pointer(in_fp, "PlateLength") # 0.008
 plate_LY = data_IO.read_float_from_file_pointer(in_fp, "PlateWidth") # 0.01
 plate_LZ = data_IO.read_float_from_file_pointer(in_fp, "PlateHeight") #0.0005
 plate_X = data_IO.read_float_from_file_pointer(in_fp, "PlateX") #0.0
 plate_Y = data_IO.read_float_from_file_pointer(in_fp, "PlateY") #0.0
+
+# # Get the absolute values of the heat source and plate sizes
+
+# HeatSource_LX = Length * HeatSource_LX
+# HeatSource_LY = Width * HeatSource_LY
+# HeatSource_LZ = Height * HeatSource_LZ
+# HeatSource_X = Length * HeatSource_X
+# HeatSource_Y = Width * HeatSource_Y
+
+# plate_LX = Length * plate_LX
+# plate_LY = Width * plate_LY
+# plate_LZ = Height * plate_LZ
+# plate_X = Length * plate_X
+# plate_Y = Width * plate_Y
 
 
 # mesh parameters

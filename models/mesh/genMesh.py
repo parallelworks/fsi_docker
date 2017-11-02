@@ -36,26 +36,28 @@ HeatSource_X = data_IO.read_float_from_file_pointer(in_fp, "BoxX") # 0.002
 HeatSource_Y = data_IO.read_float_from_file_pointer(in_fp, "BoxY") #-0.001
 
 
+InletLength = Length * InletLength
+OutletLength = Length * OutletLength
 
 plate_LX = data_IO.read_float_from_file_pointer(in_fp, "PlateLength") # 0.008
 plate_LY = data_IO.read_float_from_file_pointer(in_fp, "PlateWidth") # 0.01
 plate_LZ = data_IO.read_float_from_file_pointer(in_fp, "PlateHeight") #0.0005
-plate_X = data_IO.read_float_from_file_pointer(in_fp, "PlateX") #0.0
-plate_Y = data_IO.read_float_from_file_pointer(in_fp, "PlateY") #0.0
+# plate_X = data_IO.read_float_from_file_pointer(in_fp, "PlateX") #0.0
+# plate_Y = data_IO.read_float_from_file_pointer(in_fp, "PlateY") #0.0
 
 # # Get the absolute values of the heat source and plate sizes
 
-# HeatSource_LX = Length * HeatSource_LX
-# HeatSource_LY = Width * HeatSource_LY
-# HeatSource_LZ = Height * HeatSource_LZ
-# HeatSource_X = Length * HeatSource_X
-# HeatSource_Y = Width * HeatSource_Y
+plate_LX = Length * plate_LX
+plate_LY = Width * plate_LY
+plate_LZ = Height * plate_LZ
+plate_X = 0.0
+plate_Y = 0.0
 
-# plate_LX = Length * plate_LX
-# plate_LY = Width * plate_LY
-# plate_LZ = Height * plate_LZ
-# plate_X = Length * plate_X
-# plate_Y = Width * plate_Y
+HeatSource_LX = plate_LX * HeatSource_LX
+HeatSource_LY = plate_LY * HeatSource_LY
+HeatSource_LZ = (Height - plate_LZ - Thickness *2 ) * HeatSource_LZ
+HeatSource_X = (plate_LX-HeatSource_LX) * HeatSource_X
+HeatSource_Y = (plate_LY-HeatSource_LY) * HeatSource_Y
 
 
 # mesh parameters
@@ -151,7 +153,10 @@ Cut_1 = geompy.MakeCutList(Fuse_1, [Extrusion_7a, Extrusion_8a], True)
 Solid_1 = geompy.GetShapesOnShapeAsCompound(Cylinder_I2, Cut_1, geompy.ShapeType["SOLID"], GEOM.ST_ONIN)
 Solid_3 = geompy.GetShapesOnShapeAsCompound(Cylinder_O2, Cut_1, geompy.ShapeType["SOLID"], GEOM.ST_ONIN)
 
-[Solid_1a,Solid_2,Solid_3a] = geompy.ExtractShapes(Cut_1, geompy.ShapeType["SOLID"], True)
+Solid2pre = geompy.GetShapesOnShapeAsCompound(Cylinder_O2, Cut_1, geompy.ShapeType["SOLID"], GEOM.ST_ONOUT)
+Solid_2 = geompy.GetShapesOnShapeAsCompound(Cylinder_I2, Solid2pre, geompy.ShapeType["SOLID"], GEOM.ST_ONOUT)
+
+#[Solid_1a,Solid_2,Solid_3a] = geompy.ExtractShapes(Cut_1, geompy.ShapeType["SOLID"], True)
 
 # Add a block for a heat source
 
@@ -197,12 +202,15 @@ BoxOuterFaces = geompy.CreateGroup(Partition_1, geompy.ShapeType["FACE"])
 geompy.UnionIDs(BoxOuterFaces, [21, 14, 34, 31, 4])
 PlateUpperFace = geompy.CreateGroup(Partition_1, geompy.ShapeType["FACE"])
 geompy.UnionIDs(PlateUpperFace, [55])
+
 FixedLine = geompy.CreateGroup(Partition_1, geompy.ShapeType["EDGE"])
-geompy.UnionIDs(FixedLine, [102])
+geompy.UnionIDs(FixedLine, [97])
+
 inletSurface = geompy.CreateGroup(Partition_1, geompy.ShapeType["FACE"])
-geompy.UnionIDs(inletSurface, [136])
+geompy.UnionIDs(inletSurface, [85])
+
 AllFaces = geompy.CreateGroup(Partition_1, geompy.ShapeType["FACE"])
-geompy.UnionIDs(AllFaces, [4, 14, 21, 26, 31, 34, 38, 48, 55, 61, 66, 69, 73, 83, 93, 98, 106, 109, 111, 116, 121, 126, 131, 136, 141, 152, 163, 168, 171, 174])
+geompy.UnionIDs(AllFaces,[4, 14, 21, 26, 31, 34, 38, 48, 55, 61, 66, 69, 73, 80, 85, 90, 101, 112, 119, 124, 129, 132, 140, 145, 150, 153, 158, 163, 168, 173])
 HeatFluxFaces = geompy.UnionListOfGroups([BoxOuterFaces, PlateUpperFace])
 ZeroFluxFaces0 = geompy.CutListOfGroups([AllFaces], [HeatFluxFaces])
 
@@ -251,6 +259,7 @@ geompy.addToStudy( Face_2, 'Face_2' )
 geompy.addToStudy( Cut_1, 'Cut_1' )
 #geompy.addToStudy( Cut_1out, 'Cut_1out' )
 geompy.addToStudy( Solid_1, 'Solid_1' )
+geompy.addToStudy( Solid2pre, 'Solid2pre' )
 geompy.addToStudy( Solid_2, 'Solid_2' )
 geompy.addToStudy( Solid_3, 'Solid_3' )
 # geompy.addToStudy( Solid_1out, 'Solid_1out' )
